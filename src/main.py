@@ -42,7 +42,7 @@ def program(interval=60, max_iterations=24 * 60, token=None):
             sleep(interval)
         except KeyboardInterrupt:
             print('Enough is enough!')
-            return
+            exit(1)
 
 
 def main():
