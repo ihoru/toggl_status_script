@@ -24,15 +24,11 @@ def program(interval=60, max_iterations=24 * 60, token=None):
         diff = now + duration
         hours = diff // 3600
         diff -= hours * 3600
-        if hours:
-            hours = f'{hours}h '
+        hours = f'{hours}h ' if hours else ''
         minutes = diff // 60
         diff -= minutes * 60
-        if minutes:
-            minutes = f'{minutes}m '
-        seconds = diff
-        if seconds:
-            seconds = f'{seconds}s '
+        minutes = f'{minutes}m ' if minutes else ''
+        seconds = f'{diff}s ' if diff else ''
         description = timer['description'] or ''
         if description:
             description = f' ({description})'
