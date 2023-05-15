@@ -18,7 +18,7 @@ def program(interval=60, max_iterations=24 * 60, token=None):
         timer = toggl_track.current_timer(token=token)
         if timer is None:
             print('Timer is not started!')
-            return
+            return 1
         now = int(time())
         duration = timer['duration']  # negative unix timestamp
         diff = now + duration
@@ -42,7 +42,7 @@ def program(interval=60, max_iterations=24 * 60, token=None):
             sleep(interval)
         except KeyboardInterrupt:
             print('Enough is enough!')
-            exit(1)
+            return 1
 
 
 def main():
@@ -69,7 +69,9 @@ def main():
     if args.debug:
         logging.basicConfig(level=logging.DEBUG)
 
-    program(interval=args.interval, max_iterations=args.max_iterations, token=token)
+    result = program(interval=args.interval, max_iterations=args.max_iterations, token=token)
+    if isinstance(result, int):
+        exit(result)
 
 
 if __name__ == '__main__':
