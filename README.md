@@ -1,5 +1,11 @@
 # Python script to check if timer in Toggl Track is active
 
+The provided script is a Python program that interacts with the Toggl Track API to check if a timer (of a provided user's API Token) is currently running. It can be used with command-line arguments or with a token specified in a local settings file.
+
+> There are two modes of operation:
+> 1. It can be run once to check the current status of the timer.
+> 2. It can be run continuously (with the -c argument) to keep checking if the timer is active.
+
 ## Create environment
 
 One of ways of creating an environment is to use [pipenv](https://github.com/pypa/pipenv):
