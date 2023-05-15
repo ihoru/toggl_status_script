@@ -64,3 +64,13 @@ $DIR/main.sh
 ```sh
 python src/main.py
 ```
+
+## Hint (a lifehack)
+
+This script is especially useful in conjunction with a tool [telegram-send](https://github.com/rahiel/telegram-send). After setting it up you can use it like this: `./main.sh  -c && telegram-send "Toggl Track timer has finished"`
+
+I even created an alias in `~/.bash_aliases` to be able to run it fast:
+
+```sh
+alias timer='/LOCAL_PATH/main.sh -c && telegram-send "Toggl Track timer has finished"'
+```
